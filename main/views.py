@@ -58,7 +58,7 @@ def userpage(request, userid):
                 changes.invite_id = Auth.objects.filter(my_invite_code=form.data.get('invitecode')).get()
                 changes.phone_to_invite = Auth.objects.filter(my_invite_code=form.data.get('invitecode')).get().phone
                 changes.save()
-                changes.save_m2m()
+                # changes.save_m2m()
             elif form.data.get('invitecode') == user_info[1]:
                 error = f'Вы вводите свой инвайт код. Можно ввести только чужой инвайт код.'
             elif form.data.get('invitecode') not in Auth.objects.values_list('my_invite_code', flat=True):
